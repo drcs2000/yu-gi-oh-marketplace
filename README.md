@@ -36,7 +36,7 @@ Certifique-se de ter os seguintes itens instalados:
 1. Clone o repositório:
 
    ```sh
-   git clone https://github.com/seu-usuario/yu-gi-oh-marketplace.git
+   git clone https://github.com/drcs2000/yu-gi-oh-marketplace.git
    cd yu-gi-oh-marketplace
 
 2. Instale as dependências:
