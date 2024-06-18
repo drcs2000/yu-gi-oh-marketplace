@@ -1,0 +1,325 @@
+/* General styles */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+h2 {
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  background: #2F4F4F;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+* {
+  font-family: "Open Sans", sans-serif;
+  color: white;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+/* Home container styles */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 80px;
+}
+
+/* Welcome section styles */
+.welcome-section {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 40px;
+  padding-top: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+
+.welcome-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../public/images/home page.jpg') no-repeat center center;
+  background-size: cover;
+  z-index: 1;
+}
+
+.welcome-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(47, 79, 79, 1), rgba(47, 79, 79, 0.8), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
+  z-index: 2;
+}
+
+.welcome-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.welcome-section h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.welcome-message {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+/* Carousel section styles */
+.latest-trades {
+  width: 100%;
+}
+
+.card-carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 300px; /* Ajuste conforme necessário */
+}
+
+.carousel {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Standard card styles */
+.trade-item {
+  background: rgba(28, 28, 28, 0.4);
+  border-radius: 10px;
+  border: 1px solid #FFD700;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  color: white;
+  max-width: 400px;
+  margin: auto;
+}
+
+.trade-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.trade-cards {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  margin: 0 10px;
+}
+
+.card-name {
+  font-size: 0.8em;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.card img {
+  width: auto;
+  height: 237px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.trade-details {
+  text-align: center;
+}
+
+.trade-details p {
+  margin: 5px 0;
+}
+
+/* Login styles */
+.geometric-shapes {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.shape {
+  position: absolute;
+  background: rgba(168, 186, 3, 0.667);
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.shape1 {
+  width: 150px;
+  height: 150px;
+  top: 10%;
+  left: 30%;
+}
+
+.shape2 {
+  width: 200px;
+  height: 200px;
+  top: 30%;
+  right: 30%;
+}
+
+.shape3 {
+  width: 100px;
+  height: 100px;
+  bottom: 50%;
+  left: 50%;
+}
+
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #444444;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.shake {
+  animation: shake 0.3s;
+  border: 1px solid red;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+/*Card style*/
+.dashboard-container {
+  padding: 120px 20px 20px 20px;
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px 60px;
+  justify-items: center;
+}
+
+.card-container {
+  position: relative;
+  width: 250px;
+  height: 350px;
+  background: none;
+  perspective: 1000px;
+  margin: 0 10px;
+}
+
+.card-flip {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+}
+
+.card-flip:hover {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card-front {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.card-back {
+  background: url('../public/images/back.png') center center no-repeat;
+  background-size: contain;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.card-content {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card-description {
+  font-size: 0.9em;
+  padding: 10px;
+  text-align: center;
+}
