@@ -1,7 +1,7 @@
 <template>
-  <header class="flex items-center justify-between p-4 bg-[#1E1E1E] fixed w-full h-20 z-50">
+  <header class="flex items-center justify-between p-4 bg-[#2f2524] fixed w-full h-20 z-50">
     <router-link to="/" class="flex items-center">
-      <img src="../../public/images/logo.png" alt="Logo" class="h-12" />
+      <img src="../../public/images/logo.png" alt="Logo" class="h-16" />
     </router-link>
     <nav>
       <ul class="flex list-none m-0 p-0 relative">
@@ -16,7 +16,7 @@
           <div
             v-if="isDropdownOpen"
             ref="dropdown"
-            class="absolute right-0 mt-4 w-48 bg-[#1E1E1E] border border-[#FFD700] rounded-lg shadow-lg z-50"
+            class="absolute right-0 mt-4 w-48 bg-[#2f2524] border border-[#FFD700] rounded-lg shadow-lg z-50"
           >
             <ul class="list-none p-2">
               <div v-if="isAuthenticated">

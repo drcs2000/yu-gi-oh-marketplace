@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard-container flex">
     <div class="w-1/4 p-4 flex flex-col">
-      <div class="shadow-md rounded-lg p-6 border border-[#FFD700] mb-4 bg-[#1E1E1E]">
+      <div class="shadow-md rounded-lg p-6 border border-[#FFD700] mb-4 bg-[#2f2524]">
         <h2 class="text-2xl font-bold mb-4">Informações do Perfil</h2>
         <div v-if="user">
           <p class="font-bold">Nome:</p><span>{{ user.name }}</span>
@@ -12,7 +12,7 @@
           <p>Carregando informações do usuário...</p>
         </div>
       </div>
-      <div class="shadow-md rounded-lg p-6 border border-[#FFD700] bg-[#1E1E1E]">
+      <div class="shadow-md rounded-lg p-6 border border-[#FFD700] bg-[#2f2524]">
         <h2 class="text-2xl font-bold mb-4">Menu</h2>
         <button v-for="(menuItem, index) in menuItems" :key="index" @click="selectedMenu = menuItem"
           :class="['w-full text-left p-2 rounded mb-2 flex items-center transition-all duration-300 relative overflow-hidden border-2', { 'hover:border-[#FFD700] hover:shadow-lg border-transparent': selectedMenu !== menuItem, 'border-[#FFD700] bg-transparent ': selectedMenu === menuItem }]">
@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="w-3/4 p-4">
-      <div class="shadow-md rounded-lg p-6 border border-[#FFD700] bg-[#1E1E1E]">
+      <div class="shadow-md rounded-lg p-6 border border-[#FFD700] bg-[#2f2524]">
         <h2 class="text-2xl font-bold mb-4">{{ selectedMenu }}</h2>
         <div v-if="selectedMenu === 'Minhas Cartas' && user">
           <div class="flex items-center justify-center relative">
@@ -54,11 +54,11 @@
           </div>
           <div class="flex justify-center mt-4">
             <button @click="redirectToCards"
-              class="flex items-center justify-center  bg-[#857100] rounded-lg px-3 py-1 text-sm transition-all duration-300 hover:bg-black hover:border-[#FFD700]">
+              class="flex items-center justify-center  bg-[#a98736] rounded-lg px-3 py-1 text-sm transition-all duration-300 hover:bg-black hover:border-[#FFD700]">
               Ver Todas as Cartas
             </button>
             <button @click="showAddCardModal = true"
-              class="flex items-center justify-center bg-[#857100] rounded-lg px-3 py-1 text-sm transition-all duration-300 hover:bg-black hover:border-[#FFD700] ml-2">
+              class="flex items-center justify-center bg-[#a98736] rounded-lg px-3 py-1 text-sm transition-all duration-300 hover:bg-black hover:border-[#FFD700] ml-2">
               Adicionar Carta
             </button>
           </div>
@@ -103,11 +103,11 @@
           </div>
           <div class="flex justify-center mt-4">
             <button @click="showTradeModal = true"
-              class="flex items-center justify-center  bg-[#857100] rounded-lg px-3 py-1 text-sm transition-all duration-300 hover:bg-black hover:border-[#FFD700]">
+              class="flex items-center justify-center  bg-[#a98736] rounded-lg px-3 py-1 text-sm transition-all duration-300 hover:bg-black hover:border-[#FFD700]">
               Criar Nova Troca
             </button>
             <button @click="redirectToAllTrades"
-              class="flex items-center justify-center bg-[#857100] rounded-lg px-3 py-1 text-sm transition-all duration-300 hover:bg-black hover:border-[#FFD700] ml-2">
+              class="flex items-center justify-center bg-[#a98736] rounded-lg px-3 py-1 text-sm transition-all duration-300 hover:bg-black hover:border-[#FFD700] ml-2">
               Ver Todas as Trocas
             </button>
           </div>
@@ -115,12 +115,12 @@
       </div>
     </div>
     <div v-if="showTradeModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
-      <div class="bg-[#1E1E1E] p-6 rounded-lg shadow-lg w-96 border border-[#FFD700]">
+      <div class="bg-[#2f2524] p-6 rounded-lg shadow-lg w-96 border border-[#FFD700]">
         <h2 class="text-xl font-bold mb-4">Criar Nova Troca</h2>
         <form @submit.prevent="handleCreateTrade">
           <div class="mb-4">
             <label for="offering" class="block mb-2">Carta Oferecida</label>
-            <select v-model="newTrade.offering" class="w-full p-2 border border-gray-300 rounded bg-[#1E1E1E]">
+            <select v-model="newTrade.offering" class="w-full p-2 border border-gray-300 rounded bg-[#2f2524]">
               <option v-for="card in filteredOfferingCards" :key="card.id" :value="card">
                 {{ card.name }}
               </option>
@@ -128,7 +128,7 @@
           </div>
           <div class="mb-4">
             <label for="receiving" class="block mb-2">Carta Desejada</label>
-            <select v-model="newTrade.receiving" class="w-full p-2 border border-gray-300 rounded bg-[#1E1E1E]">
+            <select v-model="newTrade.receiving" class="w-full p-2 border border-gray-300 rounded bg-[#2f2524]">
               <option v-for="card in filteredReceivingCards" :key="card.id" :value="card">
                 {{ card.name }}
               </option>
@@ -140,7 +140,7 @@
               Cancelar
             </button>
             <button type="submit" :disabled="!newTrade.offering || !newTrade.receiving || isLoading"
-              class="flex items-center justify-center bg-[#857100] rounded-lg px-3 py-1 text-sm transition-all duration-300 hover:bg-black hover:border-[#FFD700] disabled:opacity-50 disabled:cursor-not-allowed">
+              class="flex items-center justify-center bg-[#a98736] rounded-lg px-3 py-1 text-sm transition-all duration-300 hover:bg-black hover:border-[#FFD700] disabled:opacity-50 disabled:cursor-not-allowed">
               <span v-if="isLoading" class="loader"></span>
               <span v-else>Criar</span>
             </button>
@@ -149,11 +149,11 @@
       </div>
     </div>
     <div v-if="showAddCardModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
-      <div class="bg-[#1E1E1E] p-6 rounded-lg shadow-lg w-96 border border-[#FFD700]">
+      <div class="bg-[#2f2524] p-6 rounded-lg shadow-lg w-96 border border-[#FFD700]">
         <h2 class="text-xl font-bold mb-4">Adicionar Carta</h2>
         <form @submit.prevent="handleAddCards">
           <div v-for="(card, index) in selectedCards" :key="index" class="mb-4 flex items-center">
-            <select v-model="selectedCards[index]" class="w-full p-2 border border-gray-300 rounded bg-[#1E1E1E]">
+            <select v-model="selectedCards[index]" class="w-full p-2 border border-gray-300 rounded bg-[#2f2524]">
               <option v-for="card in allCards" :key="card.id" :value="card">
                 {{ card.name }}
               </option>
@@ -163,7 +163,7 @@
             </button>
           </div>
           <button type="button" @click="addNewCardField" :disabled="selectedCards.length >= 3"
-            class="flex items-center justify-center bg-[#857100] rounded-lg px-3 py-1 text-sm transition-all duration-300 hover:bg-black hover:border-[#FFD700] disabled:opacity-50 disabled:cursor-not-allowed">
+            class="flex items-center justify-center bg-[#a98736] rounded-lg px-3 py-1 text-sm transition-all duration-300 hover:bg-black hover:border-[#FFD700] disabled:opacity-50 disabled:cursor-not-allowed">
             Adicionar Carta
           </button>
           <div class="flex justify-between mt-4">
@@ -172,7 +172,7 @@
               Cancelar
             </button>
             <button type="submit" :disabled="!areAllCardsSelected || isLoading"
-              class="flex items-center justify-center bg-[#857100] rounded-lg px-3 py-1 text-sm transition-all duration-300 hover:bg-black hover:border-[#FFD700] disabled:opacity-50 disabled:cursor-not-allowed">
+              class="flex items-center justify-center bg-[#a98736] rounded-lg px-3 py-1 text-sm transition-all duration-300 hover:bg-black hover:border-[#FFD700] disabled:opacity-50 disabled:cursor-not-allowed">
               <span v-if="isLoading" class="loader"></span>
               <span v-else>Salvar</span>
             </button>

@@ -18,7 +18,7 @@
           </div>
           <p class="mb-4 ">Já tem uma conta? <router-link to="/login" class="underline ">Faça login agora!</router-link></p>
           <div class="flex justify-center">
-            <button :disabled="!isFormValid || loading" type="submit" class="flex items-center justify-center  bg-[#857100] rounded-lg px-5 py-2 text-xl transition-all duration-300 hover:bg-black" :class="{ 'border-red-500 shake': registerError }">
+            <button :disabled="!isFormValid || loading" type="submit" class="flex items-center justify-center  bg-[#a98736] rounded-lg px-5 py-2 text-xl transition-all duration-300 hover:bg-black" :class="{ 'border-red-500 shake': registerError }">
               <span v-if="loading" class="loader mr-2"></span>
               <span v-if="loading">Carregando...</span>
               <span v-else>Registrar</span>

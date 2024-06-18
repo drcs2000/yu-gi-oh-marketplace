@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard-container">
-    <div class="header flex justify-between items-center p-4 bg-[#1E1E1E] mb-6 rounded-lg border border-[#FFD700]">
+    <div class="header flex justify-between items-center p-4 bg-[#2f2524] mb-6 rounded-lg border border-[#FFD700]">
       <h1 class="text-3xl font-bold">Trocas</h1>
       <input
         type="text"
@@ -11,7 +11,7 @@
       />
     </div>
     <div class="trades-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
-      <div v-for="(trade, index) in filteredTradeRequests" :key="index" class="trade-item p-4 bg-[#1E1E1E] rounded-lg shadow-md border border-[#FFD700]">
+      <div v-for="(trade, index) in filteredTradeRequests" :key="index" class="trade-item p-4 bg-[#2f2524] rounded-lg shadow-md border border-[#FFD700]">
         <div class="trade-info mb-4">
           <div class="trade-cards flex justify-between items-center mb-4">
             <div class="card">
