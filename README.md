@@ -1,6 +1,6 @@
 # Yu-Gi-Oh! Marketplace
 
-Bem-vindo ao Yu-Gi-Oh! Marketplace, a maior plataforma de troca de cartas Yu-Gi-Oh! do país! Este README fornece instruções detalhadas sobre como configurar, executar e contribuir para o projeto.
+Bem-vindo ao Yu-Gi-Oh! Marketplace, a maior plataforma de troca de cartas Yu-Gi-Oh! do país! Este README fornece instruções detalhadas sobre como configurar e executar o projeto.
 
 ## Índice
 
