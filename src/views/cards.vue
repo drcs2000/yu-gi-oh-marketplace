@@ -21,7 +21,7 @@
               <h2 class="card-name">{{ card.name }}</h2>
               <p class="card-description">{{ card.description }}</p>
               <div class="flex justify-center mt-4">
-                <button @click="addCard(card.id)" class="flex items-center justify-center  bg-[#a98736] rounded-lg px-3 py-1 text-sm transition-all duration-300 hover:bg-black hover:border-[#FFD700]">
+                <button @click="addCard(card.id)" class="flex items-center justify-center bg-[#a98736] rounded-lg px-3 py-1 text-sm transition-all duration-300 hover:bg-black hover:border-[#FFD700]">
                   <i class="fas fa-plus mr-2" /> Adicionar Carta
                 </button>
               </div>
@@ -36,6 +36,8 @@
 <script>
 import { mapGetters, mapActions } from 'vuex';
 import { useHead } from '@vueuse/head';
+import Swal from 'sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
 
 export default {
   name: 'Cards',
@@ -55,8 +57,34 @@ export default {
   },
   methods: {
     ...mapActions(['fetchAllCards', 'addCardToUser']),
-    addCard(cardId) {
-      this.addCardToUser([cardId]);
+    async addCard(cardId) {
+      try {
+        await this.addCardToUser([cardId]);
+        Swal.fire({
+          icon: 'success',
+          title: 'Sucesso!',
+          text: 'Carta adicionada ao seu inventário.',
+          background: '#2f2524',
+          color: '#ffffff',
+          confirmButtonColor: '#a98736',
+          customClass: {
+            popup: 'custom-swal-popup',
+          }
+        });
+      } catch (error) {
+        console.error('Failed to add card:', error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Erro!',
+          text: 'Ocorreu um problema ao adicionar a carta.',
+          background: '#2f2524',
+          color: '#ffffff',
+          confirmButtonColor: '#a98736',
+          customClass: {
+            popup: 'custom-swal-popup',
+          }
+        });
+      }
     },
     filterCards() {
       this.filteredCards = this.allCards.filter(card => {
@@ -79,3 +107,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.custom-swal-popup {
+  border: 1px solid #FFD700;
+}
+</style>

@@ -73,7 +73,7 @@
                     class="flex items-center  border-2 border-transparent rounded-lg px-4 py-2 transition-all duration-300 hover:border-[#FFD700] w-full text-left"
                   >
                     <i class="fas fa-user-plus mr-2 text-[#FFD700]" />
-                    Register
+                    Registro
                   </button>
                 </li>
               </div>

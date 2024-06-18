@@ -25,7 +25,10 @@
       <div class="shadow-md rounded-lg p-6 border border-[#FFD700] bg-[#2f2524]">
         <h2 class="text-2xl font-bold mb-4">{{ selectedMenu }}</h2>
         <div v-if="selectedMenu === 'Minhas Cartas' && user">
-          <div class="flex items-center justify-center relative">
+          <div v-if="user.cards.length === 0" class="text-center">
+            <p>Sem cartas no seu inventário no momento.</p>
+          </div>
+          <div v-else class="flex items-center justify-center relative">
             <button @click="prevCard" class="text-[#FFD700] px-2 py-1 rounded mr-4">
               <i class="fas fa-chevron-left"></i>
             </button>
@@ -64,7 +67,10 @@
           </div>
         </div>
         <div v-if="selectedMenu === 'Minhas Trocas' && user">
-          <div class="flex items-center justify-center relative">
+          <div v-if="tradeRequests.length === 0" class="text-center">
+            <p>Sem trocas em seu nome no momento.</p>
+          </div>
+          <div v-else class="flex items-center justify-center relative">
             <button @click="prevTrade" class="text-[#FFD700] px-2 py-1 rounded mr-4">
               <i class="fas fa-chevron-left"></i>
             </button>
@@ -98,12 +104,9 @@
               <i class="fas fa-chevron-right"></i>
             </button>
           </div>
-          <div v-if="!tradeRequests.length">
-            <p class="text-center">Sem trocas em seu nome no momento. Deseja criar uma nova?</p>
-          </div>
           <div class="flex justify-center mt-4">
             <button @click="showTradeModal = true"
-              class="flex items-center justify-center  bg-[#a98736] rounded-lg px-3 py-1 text-sm transition-all duration-300 hover:bg-black hover:border-[#FFD700]">
+              class="flex items-center justify-center bg-[#a98736] rounded-lg px-3 py-1 text-sm transition-all duration-300 hover:bg-black hover:border-[#FFD700]">
               Criar Nova Troca
             </button>
             <button @click="redirectToAllTrades"

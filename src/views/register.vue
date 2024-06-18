@@ -5,20 +5,20 @@
         <h2 class="text-center text-2xl mb-4">Registro</h2>
         <form @submit.prevent="handleRegister" class="w-full">
           <div class="mb-4 w-full">
-            <label for="name" class="block mb-2 ">Nome</label>
-            <input type="text" id="name" v-model="name" required class="w-full p-3 border border-[#FFD700] rounded-lg bg-transparent " />
+            <label for="name" class="block mb-2">Nome</label>
+            <input type="text" id="name" v-model="name" required class="w-full p-3 border border-[#FFD700] rounded-lg bg-transparent" />
           </div>
           <div class="mb-4 w-full">
-            <label for="email" class="block mb-2 ">Email</label>
-            <input type="email" id="email" v-model="email" required class="w-full p-3 border border-[#FFD700] rounded-lg bg-transparent " />
+            <label for="email" class="block mb-2">Email</label>
+            <input type="email" id="email" v-model="email" required class="w-full p-3 border border-[#FFD700] rounded-lg bg-transparent" />
           </div>
           <div class="mb-4 w-full">
-            <label for="password" class="block mb-2 ">Senha</label>
-            <input type="password" id="password" v-model="password" required class="w-full p-3 border border-[#FFD700] rounded-lg bg-transparent " />
+            <label for="password" class="block mb-2">Senha</label>
+            <input type="password" id="password" v-model="password" required class="w-full p-3 border border-[#FFD700] rounded-lg bg-transparent" />
           </div>
-          <p class="mb-4 ">Já tem uma conta? <router-link to="/login" class="underline ">Faça login agora!</router-link></p>
+          <p class="mb-4">Já tem uma conta? <router-link to="/login" class="underline">Faça login agora!</router-link></p>
           <div class="flex justify-center">
-            <button :disabled="!isFormValid || loading" type="submit" class="flex items-center justify-center  bg-[#a98736] rounded-lg px-5 py-2 text-xl transition-all duration-300 hover:bg-black" :class="{ 'border-red-500 shake': registerError }">
+            <button :disabled="!isFormValid || loading" type="submit" class="flex items-center justify-center bg-[#a98736] rounded-lg px-5 py-2 text-xl transition-all duration-300 hover:bg-black" :class="{ 'border-red-500 shake': registerError }">
               <span v-if="loading" class="loader mr-2"></span>
               <span v-if="loading">Carregando...</span>
               <span v-else>Registrar</span>
@@ -29,12 +29,12 @@
       </div>
       <div class="relative flex flex-col justify-center items-center p-5 w-1/2">
         <div class="geometric-shapes">
-          <div class="shape shape1" />
-          <div class="shape shape2" />
-          <div class="shape shape3" />
+          <div class="shape shape1"></div>
+          <div class="shape shape2"></div>
+          <div class="shape shape3"></div>
         </div>
         <img src="../../public/images/yugi.png" alt="Cards" class="max-w-full max-h-60 rounded-lg relative z-10" />
-        <p class="mt-4 text-lg ">Entre e faça parte do time</p>
+        <p class="mt-4 text-lg">Entre e faça parte do time</p>
       </div>
     </div>
   </div>
@@ -66,13 +66,14 @@ export default {
     }
   },
   methods: {
-    ...mapActions(["register"]),
+    ...mapActions(["register", "login"]),
     async handleRegister() {
       this.loading = true;
       this.registerError = false;
       try {
         await this.register({ name: this.name, email: this.email, password: this.password });
-        this.$router.push('/');
+        await this.login({ email: this.email, password: this.password });
+        this.$router.push('/profile');
       } catch (error) {
         this.registerError = true;
         console.error(error);
