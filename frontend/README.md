@@ -1,113 +1,69 @@
-# Yu-Gi-Oh! Marketplace
+# my-project
 
-Bem-vindo ao Yu-Gi-Oh! Marketplace, a maior plataforma de troca de cartas Yu-Gi-Oh! do país! Este README fornece instruções detalhadas sobre como configurar e executar o projeto.
+## Build Setup
 
-## Índice
+```bash
+# install dependencies
+$ npm install
 
-- [Início Rápido](#início-rápido)
-  - [Pré-requisitos](#pré-requisitos)
-  - [Instalação](#instalação)
-  - [Executando a Aplicação](#executando-a-aplicação)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Funcionalidades](#funcionalidades)
-  - [Página Inicial](#página-inicial)
-  - [Perfil do Usuário](#perfil-do-usuário)
-  - [Cartas](#cartas)
-  - [Pedidos de Troca](#pedidos-de-troca)
-  - [Autenticação](#autenticação)
-  - [Página 404](#página-404)
-- [Uso](#uso)
-  - [Adicionando Cartas](#adicionando-cartas)
-  - [Criando Pedidos de Troca](#criando-pedidos-de-troca)
-  - [Navegando no Carrossel](#navegando-no-carrossel)
+# serve with hot reload at localhost:3000
+$ npm run dev
 
-## Início Rápido
+# build for production and launch server
+$ npm run build
+$ npm run start
 
-### Pré-requisitos
-
-Certifique-se de ter os seguintes itens instalados:
-
-- [Node.js](https://nodejs.org/) (versão 14.x ou superior)
-- [npm](https://www.npmjs.com/) (versão 6.x ou superior)
-- [Vue CLI](https://cli.vuejs.org/)
-
-### Instalação
-
-1. Clone o repositório:
-
-   ```sh
-   git clone https://github.com/drcs2000/yu-gi-oh-marketplace.git
-   cd yu-gi-oh-marketplace
-
-2. Instale as dependências:
-
-```sh
-npm install
+# generate static project
+$ npm run generate
 ```
 
-### Executando a Aplicação
+For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
 
-Para executar a aplicação localmente:
+## Special Directories
 
-```sh
-npm run serve
-```
+You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
 
-A aplicação estará disponível em ``http://localhost:8080``.
+### `assets`
 
-### Estrutura do Projeto
+The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
 
-- ``src/``
-  - ``assets/``: CSS com Tailwind;
-  - ``components/``: Componentes Reutilizáveis;
-  - ``views/``: Páginas do Projeto;
-  - ``router/``: Configuração do Vue Router;
-  - ``sotre/``: Configuração do Vuex;
-  - ``App.vue``: Componente raiz;
-  - ``main.js``: ponto de entrada da aplicação.
+More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
 
-### Funcionalidades
+### `components`
 
-## Página Inicial
+The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
 
-A página inicial dá as boas-vindas aos usuários ao marketplace e exibe os últimos pedidos de troca.
+More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
 
-## Perfil do Usuário
+### `layouts`
 
-Os usuários podem visualizar e gerenciar as informações do seu perfil, incluindo suas cartas e pedidos de troca.
+Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
 
-## Cartas
+More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
 
-Os usuários podem visualizar todas as cartas disponíveis, pesquisar cartas específicas e adicioná-las à sua coleção.
 
-## Pedidos de Troca
+### `pages`
 
-Os usuários podem visualizar todos os pedidos de troca, criar novos pedidos de troca e gerenciar seus pedidos de troca existentes.
+This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
 
-## Autenticação
+More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
 
-Os usuários podem se registrar, fazer login e logout. A autenticação é necessária para acessar a maior parte da aplicação.
+### `plugins`
 
-## Página 404
+The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
 
-Uma página 404 personalizada é exibida para qualquer rota inexistente e rotas sem autorização.
+More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
 
-### Uso
+### `static`
 
-## Adicionando Cartas
+This directory contains your static files. Each file inside this directory is mapped to `/`.
 
-1. Navegue até seu perfil;
-2. Clique em "Adicionar Carta";
-3. No modal, selecione as cartas que deseja adicionar (até 3);
-4. Clique em "Salvar" para adicionar cartas à sua coleção.
+Example: `/static/robots.txt` is mapped as `/robots.txt`.
 
-## Criando Pedidos de Troca
+More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
 
-1. Navegue até "Minhas Trocas" no seu perfil;
-2. Clique em "Criar Nova Troca";
-3. No modal, selecione a carta que está oferecendo e a carta que deseja;
-4. Clique em "Criar" para enviar seu pedido de troca.
+### `store`
 
-## Navegando no Carrossel
+This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
 
-Use as setas esquerda e direita para navegar pelo carrossel de cartas e pedidos de troca. Apenas uma carta ou pedido de troca é exibido por vez.
+More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).

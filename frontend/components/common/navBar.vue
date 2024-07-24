@@ -1,14 +1,14 @@
 <template>
   <header class="flex items-center justify-between p-4 bg-[#2f2524] fixed w-full h-20 z-50">
-    <router-link to="/" class="flex items-center">
-      <img src="../../public/images/logo.png" alt="Logo" class="h-16" />
-    </router-link>
+    <nuxt-link to="/" class="flex items-center">
+      <img src="../../assets/images/logo.png" alt="Logo" class="h-16" />
+    </nuxt-link>
     <nav>
       <ul class="flex list-none m-0 p-0 relative">
         <li class="relative">
           <button
             @click="toggleDropdown"
-            class="flex items-center  bg-transparent border-2 border-transparent rounded-lg py-2 px-4 transition-all duration-300 relative overflow-hidden hover:border-[#FFD700] hover:shadow-lg mr-8"
+            class="flex items-center bg-transparent border-2 border-transparent rounded-lg py-2 px-4 transition-all duration-300 relative overflow-hidden hover:border-[#FFD700] hover:shadow-lg mr-8"
           >
             Minha Conta
             <i class="fas fa-chevron-down navbar-icon ml-2 text-[#FFD700]" />
@@ -23,7 +23,7 @@
                 <li class="mb-2">
                   <button
                     @click="navigateTo('/profile')"
-                    class="flex items-center  border-2 border-transparent rounded-lg px-4 py-2 transition-all duration-300 hover:border-[#FFD700] w-full text-left"
+                    class="flex items-center border-2 border-transparent rounded-lg px-4 py-2 transition-all duration-300 hover:border-[#FFD700] w-full text-left"
                   >
                     <i class="fas fa-user navbar-icon mr-2 text-[#FFD700]" />
                     Perfil
@@ -32,7 +32,7 @@
                 <li class="mb-2">
                   <button
                     @click="navigateTo('/cards')"
-                    class="flex items-center  border-2 border-transparent rounded-lg px-4 py-2 transition-all duration-300 hover:border-[#FFD700] w-full text-left"
+                    class="flex items-center border-2 border-transparent rounded-lg px-4 py-2 transition-all duration-300 hover:border-[#FFD700] w-full text-left"
                   >
                     <i class="fas fa-th-large mr-2 text-[#FFD700]" />
                     Cartas
@@ -41,7 +41,7 @@
                 <li class="mb-2">
                   <button
                     @click="navigateTo('/trade-requests')"
-                    class="flex items-center  border-2 border-transparent rounded-lg px-4 py-2 transition-all duration-300 hover:border-[#FFD700] w-full text-left"
+                    class="flex items-center border-2 border-transparent rounded-lg px-4 py-2 transition-all duration-300 hover:border-[#FFD700] w-full text-left"
                   >
                     <i class="fas fa-exchange-alt navbar-icon mr-2 text-[#FFD700]" />
                     Trocas
@@ -50,7 +50,7 @@
                 <li>
                   <button
                     @click="logoutAndRedirect"
-                    class="flex items-center  border-2 border-transparent rounded-lg px-4 py-2 transition-all duration-300 hover:border-[#FFD700] w-full text-left"
+                    class="flex items-center border-2 border-transparent rounded-lg px-4 py-2 transition-all duration-300 hover:border-[#FFD700] w-full text-left"
                   >
                     <i class="fas fa-sign-out-alt navbar-icon mr-2 text-[#FFD700]" />
                     Sair
@@ -61,7 +61,7 @@
                 <li class="mb-2">
                   <button
                     @click="navigateTo('/login')"
-                    class="flex items-center  border-2 border-transparent rounded-lg px-4 py-2 transition-all duration-300 hover:border-[#FFD700] w-full text-left"
+                    class="flex items-center border-2 border-transparent rounded-lg px-4 py-2 transition-all duration-300 hover:border-[#FFD700] w-full text-left"
                   >
                     <i class="fas fa-sign-in-alt mr-2 text-[#FFD700]" />
                     Login
@@ -70,7 +70,7 @@
                 <li class="mb-2">
                   <button
                     @click="navigateTo('/register')"
-                    class="flex items-center  border-2 border-transparent rounded-lg px-4 py-2 transition-all duration-300 hover:border-[#FFD700] w-full text-left"
+                    class="flex items-center border-2 border-transparent rounded-lg px-4 py-2 transition-all duration-300 hover:border-[#FFD700] w-full text-left"
                   >
                     <i class="fas fa-user-plus mr-2 text-[#FFD700]" />
                     Registro
@@ -86,25 +86,25 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
-  name: "Navbar",
+  name: 'Navbar',
   data() {
     return {
       isDropdownOpen: false,
     };
   },
   computed: {
-    ...mapGetters(["isAuthenticated"]),
+    ...mapGetters(['isAuthenticated']),
   },
   methods: {
-    ...mapActions(["logout"]),
+    ...mapActions(['logout']),
     toggleDropdown() {
       this.isDropdownOpen = !this.isDropdownOpen;
     },
     navigateTo(route) {
-      this.$router.push(route);
+      this.$nuxt.$router.push(route);
       this.isDropdownOpen = false;
     },
     handleClickOutside(event) {
@@ -114,15 +114,19 @@ export default {
     },
     logoutAndRedirect() {
       this.logout().then(() => {
-        this.$router.push('/');
+        this.$nuxt.$router.push('/');
       });
     },
   },
   mounted() {
-    document.addEventListener("click", this.handleClickOutside);
+    document.addEventListener('click', this.handleClickOutside);
   },
   beforeUnmount() {
-    document.removeEventListener("click", this.handleClickOutside);
+    document.removeEventListener('click', this.handleClickOutside);
   },
 };
 </script>
+
+<style scoped>
+/* Add your styles here */
+</style>
