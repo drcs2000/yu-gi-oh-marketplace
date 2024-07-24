@@ -1,22 +1,6 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import sequelize from './config/database';
-import authRoutes from './routes/authRoutes';
-import cardRoutes from './routes/cardRoutes';
-import tradeRoutes from './routes/tradeRoutes';
+import app from "./app";
+import 'dotenv/config'
 
-const app = express();
+const PORT = process.env.PORT || 3001;
 
-app.use(bodyParser.json());
-
-app.use('/api/auth', authRoutes);
-app.use('/api/cards', cardRoutes);
-app.use('/api/trades', tradeRoutes);
-
-const PORT = process.env.PORT || 5000;
-
-sequelize.sync().then(() => {
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-  });
-});
+app.listen(PORT, () => console.log(`Server runing in port ${PORT}`))
