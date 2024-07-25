@@ -1,4 +1,11 @@
 <template>
-  <div class="text-black">caralho</div>
+  <HomePage />
 </template>
 
+<script>
+export default {
+  components: {
+    HomePage: () => import('~/pages/home.vue')
+  }
+}
+</script>
